@@ -1,5 +1,3 @@
-source funcs.sh
-source print.sh
 source config.sh
 
 read x y <<< $(measure_text "$(cat $LOGO_FILE)")
@@ -14,7 +12,7 @@ if [[ "$MAX_LINES" -le "$my" ]]; then
 fi
 
 print_specs() {
-    box 0 0 $x $y "$(cat $LOGO_FILE)"
+    box 0 0 $x $y "$LOGO_COLOR$(cat $LOGO_FILE)$RESET"
     box $((x+1)) 0 $((COLUMNS-x-1)) $LINES "$stats"
 }
 print_specs
